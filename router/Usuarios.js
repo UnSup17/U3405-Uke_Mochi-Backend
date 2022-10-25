@@ -1,13 +1,13 @@
 const express = require('express');
 const router = express.Router();
 
-const Producto = require('../model/Producto')
+const Usuario = require('../model/Usuario')
 
 router.get('/', async(req,res) => {
     try {
-        const arrayProductosDB = await Producto.find();
+        const arrayUsuariosDB = await Usuario.find();
         res.send({
-            arrayProductos:arrayProductosDB
+            arrayUsuarios:arrayUsuariosDB
         })
     } catch (error) {
         console.log(error);
@@ -16,12 +16,12 @@ router.get('/', async(req,res) => {
 
 router.post('/crear', async(req,res) => {
     const body = req.body;
-    console.log('Creando nueva producto:');
+    console.log('Creando nueva usuario:');
     console.log(body)
     try {
-        const productoDB = new Producto(body);
-        await productoDB.save();
-        res.status(200).send(productoDB);
+        const usuarioDB = new Usuario(body);
+        await usuarioDB.save();
+        res.status(200).send(usuarioDB);
     } catch (error) {
         console.log('error', error);
     }

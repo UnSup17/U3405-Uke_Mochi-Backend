@@ -20,7 +20,8 @@ mongoose.connect(uri,
     .catch(e => console.log(e));
 
 // Rutas web
-app.use('/productos', require('./router/Productos'))
+app.use('/productos', require('./router/Productos'));
+app.use('/usuarios',  require('./router/Usuarios'));
 
 app.listen(port, () => {
     console.log('Example app listening at http://localhost:', port);

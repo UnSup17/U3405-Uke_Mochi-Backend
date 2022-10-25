@@ -8,7 +8,7 @@ const productoSchema = new Schema({
     marca:          { type: String, maxLength: 60,  required: true },
     descripcion:    { type: String, maxLength: 300, required: true },
     precio:         { type: Number,                 required: true },
-    keywords:       { type: String, maxLength: 20,  required: true },
+    keywords:       { type: String, maxLength: 100,  required: true },
     disponibilidad: { type: Boolean,                required: true },
     url_image:      { type: String,                 required: true }
 });
