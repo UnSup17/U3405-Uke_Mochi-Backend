@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
 
-const usuarioSchema = new Schema({
+const userSchema = new  mongoose.Schema({
     email:      { type: String,                required: true, unique: true },
     cedula:     { type: Number,                required: true, unique: true },
     nombre:     { type: String, maxLength: 50, required: true },
@@ -11,7 +10,4 @@ const usuarioSchema = new Schema({
     telefono:   { type: String, maxLength: 15, required: true }
 });
 
-// crear modelo
-const Usuario = mongoose.model('Usuario', usuarioSchema);
-
-module.exports = Usuario;
+module.exports = mongoose.model('User', userSchema);
