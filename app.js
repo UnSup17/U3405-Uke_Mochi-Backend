@@ -15,6 +15,7 @@ app.use(cors());
 // Rutas web
 app.get('/', (req, res) => { res.send('API iniciado'); })
 app.use('/products', require('./routes/ProductRoutes'));
+app.use('/productcategory', require('./routes/ProductCategoryRoutes'));
 app.use('/users', require('./routes/UserRoutes'));
 
 // Arranque

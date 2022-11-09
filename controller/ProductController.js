@@ -17,6 +17,16 @@ productController.readProduct = async (req, res) => {
             .send(productFound.length > 0 ? productFound : "No Data Found"))
         .catch((error) => res.status(400).send("Bad Request. " + error));
 }
+productController.filterProductCategory = async (req, res) => {
+    const { category } = req.query.category
+        ? req.query : req.params;
+    console.log(category);
+    await productModel.find(category && { tipo: category })
+        .then((productFound) => res.status(productFound.length > 0 ? 200 : 404)
+            .send(productFound.length > 0 ? productFound : "No Data Found"))
+        .catch((error) => res.status(400).send("Bad Request. " + error));
+    console.log(category);
+}
 
 // Update
 productController.updateProduct = async (req, res) => {

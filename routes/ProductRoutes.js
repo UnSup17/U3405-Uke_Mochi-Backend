@@ -6,7 +6,8 @@ router.post('/', productController.createProduct);
 
 // Read
 router.get('/', productController.readProduct);
-router.get('/:cedula', productController.readProduct);
+router.get('/:id', productController.readProduct);
+router.get('/tipo/:category', productController.filterProductCategory)
 
 // Update
 router.put("/:id", productController.updateProduct);
